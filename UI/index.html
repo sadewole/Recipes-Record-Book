@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Food recipe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+  <div class="container">
+    
+      <!-- header -->
+      <header class="">
+          <div class="contain">
+        <h1><a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" role="img"><title>Product</title><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          </a>Nineteen Recipes</h1>
+        </div>
+      </header>
+
+     <!-- container -->
+      <div class="contain">
+      <button class="add-item">Add Item</button>
+        <div class="card">
+          <div class="card-head">
+            <h2>Melony cake</h2>
+            <i class="fab fa-periscope"></i>
+          </div>
+          <div class="card-body">
+            <p><strong>Ingredient:</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
+            <p><strong>Direction:</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
+            <span>
+              <i class="far fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Melony Spam</h2>
+            <i class="fab fa-periscope"></i>
+          </div>
+          <div class="card-body">
+            <p>Ingredient: adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
+            <p>Direction: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
+            <span>
+              <i class="far fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Melony Crunk</h2>
+            <i class="fab fa-periscope"></i>
+          </div>
+          <div class="card-body">
+            <p>Ingredient: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
+            <p>Direction: Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
+            <span>
+              <i class="far fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+  </div>
+
+   <!-- add modal -->
+   <div class="modal">
+    <form class="form">
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" name="title" id="">
+      </div>
+      <div class="form-group">
+        <label>Ingredient:</label>
+        <input type="text" name="ingredient" id="">
+      </div>
+      <div class="form-group">
+        <label>Direction:</label>
+        <textarea name="direction" id=""></textarea>
+      </div>
+      <button class="success">Save</button>
+      <button class="danger">Cancel</button>
+    </form>
+  </div>
+
+
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/main.js"></script>
+
+
+
+
+  <script>
+    $('.fab').on('click', (e) => {
+	const child = e.target.parentElement.parentElement.childNodes[3];
+
+	$(child).toggle();
+});
+
+  </script>
+</body>
+</html>

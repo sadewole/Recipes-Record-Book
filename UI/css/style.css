@@ -1,0 +1,181 @@
+@import url('https://fonts-googleapis.com/css?family=Archivo+Narrow|Cookie|Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Felipa');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+:root {
+	--primary-font: 'Archivo Narrow', sans-serif;
+	--secondary-font: 'Cookie', cursive;
+	--tetiary-font: 'Satisfy', cursive;
+	--custom-font: 'Roboto', sans-serif;
+	--main-color: crimson;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.success {
+	background: #343a40;
+	color: #fff;
+}
+.danger {
+	background: var(--main-color);
+	color: #fff;
+}
+body {
+	font-family: var(--secondary-font);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+header {
+	padding: 5px;
+	height: 40px;
+	background: var(--main-color);
+	color: beige;
+	display: block;
+}
+
+.contain {
+	width: 60%;
+	margin: 0 auto;
+}
+.add-item {
+	font-size: 1rem;
+	padding: 5px;
+	background: var(--main-color);
+	color: #fff;
+	margin: 20px 0px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: all 0.5s linear;
+}
+.add-item:hover {
+	background: #343a40;
+	transform: translateY(-1px);
+}
+.card {
+	margin: 10px auto;
+	box-sizing: border-box;
+	border: 1px solid #666;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.card-head {
+	display: flex;
+	justify-content: space-between;
+	background: #343a40;
+	color: #fff;
+	padding: 5px;
+}
+.far,
+.fab {
+	cursor: pointer;
+	transition: all 0.5s ease-out;
+}
+.far {
+	margin-top: 1rem;
+	font-size: 1.2rem;
+}
+.fa-edit {
+	color: #007bff;
+}
+.fa-trash-alt {
+	color: #dc3545;
+}
+.far:hover,
+.fab:hover {
+	transform: scale(1.2);
+}
+.card-body {
+	font-family: 'Felipa', cursive;
+	display: none;
+	padding: 10px;
+	padding-bottom: 0px;
+	margin-bottom: 5px;
+	transition: all 0.5s linear;
+}
+
+.card-body p {
+	margin-bottom: 1rem;
+}
+.modal {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+}
+.form {
+	position: relative;
+	display: block;
+	width: 50%;
+	margin: auto;
+	padding: 1rem;
+	background: #fff;
+	color: #000;
+	overflow: hidden;
+	box-sizing: border-box;
+	animation-name: modal;
+	animation-duration: .4s;
+	border-radius: 0 0 5px 5px;
+}
+@keyframes modal {
+	from {
+		top: -1000px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+.form-group {
+	display: block;
+	margin-bottom: 1rem;
+}
+.form-group label,
+.form-group input,
+.form-group textarea {
+	display: block;
+}
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 5px 0px;
+	font-size: 1.3rem;
+	border-radius: 5px;
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #000;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+	border-color: var(--main-color);
+}
+.form button {
+	font-size: 1rem;
+	padding: 5px;
+	float: right;
+	margin-left: 5px;
+	cursor: pointer;
+	transition: all 0.5s linear;
+}
+.form button:hover {
+	opacity: 0.6;
+}
+/* media query */
+@media (max-width: 578px) and (min-width: 320px) {
+	.contain {
+		width: 90%;
+	}
+	.form {
+		width: 85%;
+	}
+}
