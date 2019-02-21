@@ -19,9 +19,9 @@ module.exports = {
 			TYPE: 'POST',
 			status: 201,
 			data: {
-				title: req.body.title.trim(),
-				ingredient: req.body.ingredient.trim(),
-				direction: req.body.direction.trim()
+				title: req.body.title,
+				ingredient: req.body.ingredient,
+				direction: req.body.direction
 			},
 			message: 'Recipe added Successfully'
 		});
@@ -36,9 +36,9 @@ module.exports = {
 			TYPE: 'PUT',
 			status: 201,
 			data: {
-				title: req.body.title.trim(),
-				ingredient: req.body.ingredient.trim(),
-				direction: req.body.direction.trim()
+				title: req.body.title,
+				ingredient: req.body.ingredient,
+				direction: req.body.direction
 			},
 			message: 'Recipe updated Successfully'
 		});

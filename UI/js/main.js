@@ -49,7 +49,7 @@ const addPost = (e) => {
 		.then((res) => res.json())
 		.then((data) => {
 			if (data.status === 201) {
-				alert(data.data);
+				alert(data.message);
 				window.location.href = '';
 			}
 			addErrorVal.innerHTML = data.error.message;
@@ -74,7 +74,7 @@ const editPost = () => {
 		.then((res) => res.json())
 		.then((data) => {
 			if (data.status === 201) {
-				alert('Updated successfully');
+				alert(data.message);
 				window.location.href = '';
 			}
 			editErrorVal.innerHTML = data.error.message;
@@ -129,6 +129,8 @@ const toggleDone = (e) => {
 		deletePost();
 	}
 	if (e.target.matches('i.fa-edit')) {
+		console.log(e.target.getAttribute('data-title'));
+
 		id = e.target.getAttribute('data-id');
 		editTitle.value = e.target.getAttribute('data-title');
 		editIngredient.value = e.target.getAttribute('data-ingredient');
@@ -165,7 +167,7 @@ const close = () => {
 	modal.style.display = 'none';
 };
 
-// default event
+// default event/action
 const Modal = () => {
 	window.addEventListener('click', exitModal);
 	document.querySelector('.add-item').addEventListener('click', addMenu);
