@@ -43,6 +43,7 @@ header {
 	margin: 0 auto;
 }
 .add-item {
+	display: block;
 	font-size: 1rem;
 	padding: 5px;
 	background: var(--main-color);
@@ -57,7 +58,9 @@ header {
 	background: #343a40;
 	transform: translateY(-1px);
 }
+
 .card {
+	display: block;
 	margin: 10px auto;
 	box-sizing: border-box;
 	border: 1px solid #666;
@@ -92,7 +95,7 @@ header {
 }
 .card-body {
 	font-family: 'Felipa', cursive;
-	display: none;
+	/* display: none; */
 	padding: 10px;
 	padding-bottom: 0px;
 	margin-bottom: 5px;
@@ -102,7 +105,8 @@ header {
 .card-body p {
 	margin-bottom: 1rem;
 }
-.modal {
+.modal,
+.editModal {
 	display: none;
 	position: fixed;
 	top: 0px;
@@ -112,7 +116,12 @@ header {
 	height: 100vh;
 	z-index: 1;
 }
-.form {
+#editErrorVal,
+#addErrorVal {
+	color: red;
+}
+.add_form,
+.edit_form {
 	position: relative;
 	display: block;
 	width: 50%;
@@ -154,12 +163,14 @@ header {
 	outline: none;
 	box-shadow: none;
 	border: 1px solid #000;
+	font-family: var(--secondary-font);
 }
 .form-group input:focus,
 .form-group textarea:focus {
 	border-color: var(--main-color);
 }
-.form button {
+.add_form button,
+.edit_form button {
 	font-size: 1rem;
 	padding: 5px;
 	float: right;
@@ -167,7 +178,8 @@ header {
 	cursor: pointer;
 	transition: all 0.5s linear;
 }
-.form button:hover {
+.add_form button:hover,
+.edit_form button:hover {
 	opacity: 0.6;
 }
 /* media query */
@@ -175,7 +187,8 @@ header {
 	.contain {
 		width: 90%;
 	}
-	.form {
+	.add_form,
+	.edit_form {
 		width: 85%;
 	}
 }

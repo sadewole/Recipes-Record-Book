@@ -23,67 +23,48 @@
      <!-- container -->
       <div class="contain">
       <button class="add-item">Add Item</button>
-        <div class="card">
-          <div class="card-head">
-            <h2>Melony cake</h2>
-            <i class="fab fa-periscope"></i>
-          </div>
-          <div class="card-body">
-            <p><strong>Ingredient:</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
-            <p><strong>Direction:</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
-            <span>
-              <i class="far fa-edit"></i>
-              <i class="far fa-trash-alt"></i>
-            </span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <h2>Melony Spam</h2>
-            <i class="fab fa-periscope"></i>
-          </div>
-          <div class="card-body">
-            <p>Ingredient: adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
-            <p>Direction: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
-            <span>
-              <i class="far fa-edit"></i>
-              <i class="far fa-trash-alt"></i>
-            </span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <h2>Melony Crunk</h2>
-            <i class="fab fa-periscope"></i>
-          </div>
-          <div class="card-body">
-            <p>Ingredient: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur commodi odit quos, rem molestias cupiditate nihil tenetur dignissimos libero fugiat.</p>
-            <p>Direction: Culpa natus iste et laudantium hic sequi praesentium explicabo! A temporibus, voluptate nemo neque id, dicta natus, est laborum expedita ipsum nesciunt.</p>
-            <span>
-              <i class="far fa-edit"></i>
-              <i class="far fa-trash-alt"></i>
-            </span>
-          </div>
-        </div>
+      <div class="recipeContainer"></div>
       </div>
   </div>
 
    <!-- add modal -->
    <div class="modal">
-    <form class="form">
+    <form class="add_form" method="POST">
       <div class="form-group">
         <label>Title:</label>
-        <input type="text" name="title" id="">
+        <input type="text" name="title" id="title">
       </div>
       <div class="form-group">
         <label>Ingredient:</label>
-        <input type="text" name="ingredient" id="">
+        <textarea name="ingredient" id="ingredient"></textarea>
       </div>
       <div class="form-group">
         <label>Direction:</label>
-        <textarea name="direction" id=""></textarea>
+        <textarea name="direction" id="direction"></textarea>
       </div>
-      <button class="success">Save</button>
+      <p id="addErrorVal"></p>
+      <button class="success" id="addRecipe">Save</button>
+      <button type="reset" class="danger">Cancel</button>
+    </form>
+  </div>
+
+   <!-- add modal -->
+   <div class="editModal">
+    <form class="edit_form">
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" name="title" id="editTitle">
+      </div>
+      <div class="form-group">
+        <label>Ingredient:</label>
+        <textarea name="ingredient" id="editIngredient"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Direction:</label>
+        <textarea name="direction" id="editDirection"></textarea>
+      </div>
+      <p id="editErrorval"></p>
+      <button class="success" id="editRecipe">Save</button>
       <button class="danger">Cancel</button>
     </form>
   </div>
@@ -91,19 +72,10 @@
 
 
 
-  <script src="js/jquery.js"></script>
+
+
+  
   <script src="js/main.js"></script>
 
-
-
-
-  <script>
-    $('.fab').on('click', (e) => {
-	const child = e.target.parentElement.parentElement.childNodes[3];
-
-	$(child).toggle();
-});
-
-  </script>
 </body>
 </html>
