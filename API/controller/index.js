@@ -26,6 +26,11 @@ module.exports = {
 			message: 'Recipe added Successfully'
 		});
 	},
+	getSingleRecipe: async (req, res, next) => {
+		const { recipeId } = req.value.params;
+		const oneRecipe = await Recipe.findById(recipeId);
+		res.status(200).json(oneRecipe);
+	},
 	replaceRecipe: async (req, res, next) => {
 		const { recipeId } = req.value.params;
 		const rep = req.value.body;

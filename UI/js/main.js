@@ -1,10 +1,8 @@
-// add modal function
 const modal = document.querySelector('.modal');
 const editModal = document.querySelector('.editModal');
 const addRecipe = document.getElementById('addRecipe');
 const editRecipe = document.getElementById('editRecipe');
 const recipeContainer = document.querySelector('.recipeContainer');
-const editErrorVal = document.getElementById('editErrorVal');
 const addErrorVal = document.getElementById('addErrorVal');
 let id = null;
 const url = 'http://localhost:3000/api/v1/';
@@ -12,22 +10,14 @@ const url = 'http://localhost:3000/api/v1/';
 const title = document.getElementById('title');
 const direction = document.getElementById('direction');
 const ingredient = document.getElementById('ingredient');
-const editTitle = document.getElementById('editTitle');
-const editDirection = document.getElementById('editDirection');
-const editIngredient = document.getElementById('editIngredient');
 
 const clearError = () => {
 	addErrorVal.innerHTML = '';
 };
-const clearEditError = () => {
-	editErrorVal.innerHTML = '';
-};
+
 title.addEventListener('keyup', clearError);
 direction.addEventListener('keyup', clearError);
 ingredient.addEventListener('keyup', clearError);
-editTitle.addEventListener('keyup', clearEditError);
-editDirection.addEventListener('keyup', clearEditError);
-editIngredient.addEventListener('keyup', clearEditError);
 
 const addPost = (e) => {
 	e.preventDefault();
@@ -55,6 +45,34 @@ const addPost = (e) => {
 			addErrorVal.innerHTML = data.error.message;
 		});
 };
+const getSingleRecipe = () => {
+	fetch(`${url}/${id}`)
+		.then((res) => res.json())
+		.then((data) => {
+			const { title, ingredient, direction } = data;
+
+			const output = `<form method="post" enctype="multipart/form-data" class="edit_form">
+			<div class="form-group">
+				<label>Title:</label>
+				<input type="text" name="title" id="editTitle" value="${title}">
+			</div>
+			<div class="form-group">
+				<label>Ingredient:</label>
+				<textarea name="ingredient" id="editIngredient" >${ingredient}</textarea>
+			</div>
+			<div class="form-group">
+				<label>Direction:</label>
+				<textarea name="direction" id="editDirection" >${direction}</textarea>
+			</div>
+			<p id="editErrorVal"></p>
+			<button class="success" id="editRecipe" type="button" >Save</button>
+			<button class="danger" type="reset">Cancel</button>
+			</form>`;
+
+			document.querySelector('.editModal').innerHTML = output;
+		})
+		.catch((err) => console.error(err));
+};
 
 const editPost = () => {
 	const result = {
@@ -62,6 +80,7 @@ const editPost = () => {
 		direction: document.getElementById('editDirection').value,
 		ingredient: document.getElementById('editIngredient').value
 	};
+	const editErrorVal = document.getElementById('editErrorVal');
 
 	fetch(`${url}/${id}`, {
 		method: 'PUT',
@@ -129,12 +148,7 @@ const toggleDone = (e) => {
 		deletePost();
 	}
 	if (e.target.matches('i.fa-edit')) {
-		console.log(e.target.getAttribute('data-title'));
-
 		id = e.target.getAttribute('data-id');
-		editTitle.value = e.target.getAttribute('data-title');
-		editIngredient.value = e.target.getAttribute('data-ingredient');
-		editDirection.value = e.target.getAttribute('data-direction');
 		editMenu();
 	}
 	if (e.target.matches('i.fab')) {
@@ -148,12 +162,23 @@ const toggleDone = (e) => {
 	return;
 };
 
+const toggleEdit = (e) => {
+	if (e.target.matches('button.success')) {
+		editPost();
+	}
+
+	if (e.target.matches('button.danger')) {
+		editModal.style.display = 'none';
+	}
+};
+
 const addMenu = () => {
 	modal.style.display = 'block';
 };
 
 const editMenu = () => {
 	editModal.style.display = 'block';
+	getSingleRecipe();
 };
 
 const exitModal = (e) => {
@@ -173,8 +198,8 @@ const Modal = () => {
 	document.querySelector('.add-item').addEventListener('click', addMenu);
 	document.querySelector('.danger').addEventListener('click', close);
 	recipeContainer.addEventListener('click', toggleDone);
+	editModal.addEventListener('click', toggleEdit);
 	addRecipe.addEventListener('click', addPost);
-	editRecipe.addEventListener('click', editPost);
 };
 
 Modal();

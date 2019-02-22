@@ -8,6 +8,7 @@ router.route('/').get(recipeController.index).post(validateBody(schemas.bodySche
 
 router
 	.route('/:recipeId')
+	.get(validateParam(schemas.idSchema, 'recipeId'), recipeController.getSingleRecipe)
 	.put(
 		[ validateBody(schemas.bodySchema), validateParam(schemas.idSchema, 'recipeId') ],
 		recipeController.replaceRecipe
